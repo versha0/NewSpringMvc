@@ -12,10 +12,14 @@ public class UserController {
 
     @PostMapping("/show")
     public ModelAndView getName(HttpServletRequest req){
-        System.out.println("vgfych");
-        String str=req.getParameter("name");
+
+        String name=req.getParameter("username");
+        String password=req.getParameter("Password");
+        User user=new User();
+        user.setName(name);
+        user.setPassword(password);
         ModelAndView modelAndView=new ModelAndView("display");
-        modelAndView.addObject("value",str);
+        modelAndView.addObject("value",user.getName());
         return  modelAndView;
     }
 }
